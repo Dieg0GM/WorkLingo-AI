@@ -1,118 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>WorkLingo AI</title>
 
     <link rel="stylesheet" href="/static/css/style.css">
+
 </head>
+
 
 <body>
 
+
 <div class="app-container">
+
 
     <header>
 
         <h1>🌍 WorkLingo AI</h1>
 
-        <p>
-            AI Communication Assistant
-        </p>
+        <p>Professional AI Communication Assistant</p>
 
     </header>
 
 
-    <section class="languages">
 
-        <select id="source_language">
-            <option>Spanish</option>
-            <option>Japanese</option>
-            <option>English</option>
-        </select>
+   <main class="translator-box">
 
+<div class="mode-selector">
 
-        <button class="swap">
-            ⇄
-        </button>
+    <label for="mode">
+        Mode
+    </label>
 
 
-        <select id="target_language">
-            <option>Japanese</option>
-            <option>Spanish</option>
-            <option>English</option>
-        </select>
+    <select id="mode">
 
-    </section>
+        <option value="translate">
+            🌐 Translate
+        </option>
 
 
-
-    <textarea 
-        id="text"
-        placeholder="Write your message..."
-    ></textarea>
+        <option value="assistant">
+            ✍ Compose with AI
+        </option>
 
 
-
-    <section class="settings">
-
-
-        <select id="channel">
-
-            <option>Slack</option>
-            <option>Email</option>
-            <option>Teams</option>
-
-        </select>
+    </select>
 
 
+</div>
 
-        <select id="tone">
-
-            <option>Professional</option>
-            <option>Friendly</option>
-            <option>Formal</option>
-
-        </select>
+    <div class="translation-card">
 
 
-    </section>
+        <div class="language-bar">
+
+
+            <select id="source_language">
+
+                <option value="Spanish">
+                    🇪🇸 Spanish
+                </option>
+
+                <option value="English">
+                    🇺🇸 English
+                </option>
+
+                <option value="Japanese">
+                    🇯🇵 Japanese
+                </option>
+
+            </select>
 
 
 
-    <button id="translateBtn">
-
-        🚀 Translate
-
-    </button>
+            <span>⇄</span>
 
 
 
-    <section class="result-box">
+            <select id="target_language">
 
 
-        <h2>
-            🤖 Result
-        </h2>
+                <option value="Japanese">
+                    🇯🇵 Japanese
+                </option>
 
 
-        <div id="result">
+                <option value="English">
+                    🇺🇸 English
+                </option>
+
+
+                <option value="Spanish">
+                    🇪🇸 Spanish
+                </option>
+
+
+            </select>
+
+
+        </div>
+
+
+
+
+        <textarea
+            id="text"
+            placeholder="Escribe tu mensaje...">
+        </textarea>
+
+
+
+    </div>
+
+
+</main>
+
+
+
+        <div id="status" class="status">
+
+        </div>
+
+
+
+        <div id="result" class="result">
 
             Translation will appear here...
 
         </div>
 
 
-        <button id="copyBtn">
-
-            📋 Copy
-
-        </button>
 
 
-    </section>
+        <div class="advanced">
+
+
+            <button id="advancedBtn">
+
+                ⚙ Advanced Options ▼
+
+            </button>
+
+
+
+            <div id="advancedPanel" class="advanced-panel">
+
+
+                <label>
+                    Channel
+                </label>
+
+
+                <select id="channel">
+
+                    <option value="Slack">
+                        Slack
+                    </option>
+
+                    <option value="Email">
+                        Email
+                    </option>
+
+                    <option value="Chat">
+                        Chat
+                    </option>
+
+
+                </select>
+
+
+
+
+                <label>
+                    Tone
+                </label>
+
+
+                <select id="tone">
+
+                    <option value="Professional">
+                        Professional
+                    </option>
+
+                    <option value="Friendly">
+                        Friendly
+                    </option>
+
+                    <option value="Formal">
+                        Formal
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
 
 
 </div>

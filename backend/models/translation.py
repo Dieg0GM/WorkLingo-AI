@@ -6,3 +6,5 @@ class TranslationRequest(BaseModel):
     source_language: str
     target_language: str
     channel: str
+    tone: str
+    mode: str

@@ -1,33 +1,87 @@
-const button = document.getElementById("translateBtn");
+const textBox = document.getElementById("text");
 
 const resultBox = document.getElementById("result");
 
+const statusBox = document.getElementById("status");
 
-button.addEventListener("click", async () => {
 
-
-    const text = document.getElementById("text").value;
-
-    const source_language = document.getElementById("source_language").value;
-
-    const target_language = document.getElementById("target_language").value;
-
-    const channel = document.getElementById("channel").value;
-
-    const tone = document.getElementById("tone").value;
+let timer;
 
 
 
-    resultBox.innerHTML = "⏳ Connecting with AI...";
+textBox.addEventListener("input", () => {
 
+
+    clearTimeout(timer);
+
+
+
+    timer = setTimeout(() => {
+
+
+        translate();
+
+
+    }, 800);
+
+
+
+});
+
+
+
+
+
+async function translate() {
+
+
+    const text = textBox.value.trim();
+
+
+
+    if (text === "") {
+
+        resultBox.innerHTML = "Translation will appear here...";
+
+        statusBox.innerHTML = "";
+
+        return;
+
+    }
+
+
+
+    const source_language =
+        document.getElementById("source_language").value;
+
+
+    const target_language =
+        document.getElementById("target_language").value;
+
+
+    const channel =
+        document.getElementById("channel").value;
+
+
+    const tone =
+        document.getElementById("tone").value;
+
+    const mode = 
+        document.getElementById("mode").value;
+
+
+    statusBox.innerHTML ="🤖 Gemini is thinking...";
 
 
     try {
 
 
+
         const response = await fetch("/translate", {
 
+
             method: "POST",
+
 
             headers: {
 
@@ -38,6 +92,7 @@ button.addEventListener("click", async () => {
 
             body: JSON.stringify({
 
+
                 text: text,
 
                 source_language: source_language,
@@ -46,29 +101,112 @@ button.addEventListener("click", async () => {
 
                 channel: channel,
 
-                tone: tone
+                tone: tone,
+                
+                mode: mode
 
             })
+
 
         });
 
 
 
-        const data = await response.json();
-
-
-        resultBox.innerHTML = data.translated;
+     const data = await response.json();
 
 
 
-    } catch(error) {
+
+    if (data.error) {
 
 
-        resultBox.innerHTML =
-        "❌ Error connecting with server";
+    result.innerHTML = `
+        ⚠️ ${data.error}
+    `;
+
+
+    statusBox.innerHTML =
+        "⚠️ Gemini unavailable";
+
+
+    } else {
+
+
+    result.innerHTML = data.translated;
+
+
+    statusBox.innerHTML =
+        "✅ Translation completed";
+
+
+    }
+
+    
+} 
+
+    catch(error) {
+   
 
 
         console.error(error);
+
+
+
+        statusBox.innerHTML =
+            "❌ Connection error";
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+// Advanced options
+
+
+const advancedBtn =
+    document.getElementById("advancedBtn");
+
+
+const advancedPanel =
+    document.getElementById("advancedPanel");
+
+
+
+advancedPanel.style.display = "none";
+
+
+
+advancedBtn.addEventListener("click", () => {
+
+
+    if (advancedPanel.style.display === "none") {
+
+
+        advancedPanel.style.display = "block";
+
+
+        advancedBtn.innerHTML =
+        "⚙ Advanced Options ▲";
+
+
+    }
+
+    else {
+
+
+        advancedPanel.style.display = "none";
+
+
+        advancedBtn.innerHTML =
+        "⚙ Advanced Options ▼";
+
 
     }
 

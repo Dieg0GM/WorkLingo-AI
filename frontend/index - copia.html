@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WorkLingo AI</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <header>
+
+        <h1>🌍 WorkLingo AI</h1>
+
+        <p>
+            AI Communication Assistant
+        </p>
+
+    </header>
+
+
+    <section class="languages">
+
+        <select id="source_language">
+            <option>Spanish</option>
+            <option>Japanese</option>
+            <option>English</option>
+        </select>
+
+
+        <button class="swap">
+            ⇄
+        </button>
+
+
+        <select id="target_language">
+            <option>Japanese</option>
+            <option>Spanish</option>
+            <option>English</option>
+        </select>
+
+    </section>
+
+
+
+    <textarea 
+        id="text"
+        placeholder="Write your message..."
+    ></textarea>
+
+
+
+    <section class="settings">
+
+
+        <select id="channel">
+
+            <option>Slack</option>
+            <option>Email</option>
+            <option>Teams</option>
+
+        </select>
+
+
+
+        <select id="tone">
+
+            <option>Professional</option>
+            <option>Friendly</option>
+            <option>Formal</option>
+
+        </select>
+
+
+    </section>
+
+
+
+    <button id="translateBtn">
+
+        🚀 Translate
+
+    </button>
+
+
+
+    <section class="result-box">
+
+
+        <h2>
+            🤖 Result
+        </h2>
+
+
+        <div id="result">
+
+            Translation will appear here...
+
+        </div>
+
+
+        <button id="copyBtn">
+
+            📋 Copy
+
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<script src="/static/js/script.js"></script>
+
+
+</body>
+
+</html>
