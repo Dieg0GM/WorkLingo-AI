@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkLingo AI</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌍 WorkLingo AI</h1>
+
+        <p class="subtitle">
+            Professional AI Communication Assistant
+        </p>
+
+        <label>Message</label>
+
+        <textarea
+            id="message"
+            placeholder="Write your message here..."></textarea>
+
+        <div class="row">
+
+            <div>
+
+                <label>Source Language</label>
+
+                <select id="source">
+
+                    <option>Spanish</option>
+                    <option>English</option>
+                    <option>Japanese</option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>Target Language</label>
+
+                <select id="target">
+
+                    <option>Japanese</option>
+                    <option>English</option>
+                    <option>Spanish</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div>
+
+                <label>Channel</label>
+
+                <select id="channel">
+
+                    <option>Slack</option>
+                    <option>Teams</option>
+                    <option>Email</option>
+                    <option>GitHub</option>
+                    <option>Jira</option>
+                    <option>ServiceNow</option>
+                    <option>Chatwork</option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>Tone</label>
+
+                <select id="tone">
+
+                    <option>Professional</option>
+                    <option>Friendly</option>
+                    <option>Formal</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button id="translateBtn">
+
+            Translate
+
+        </button>
+
+        <h2>Result</h2>
+
+        <div id="result">
+
+            Waiting for translation...
+
+        </div>
+
+    </div>
+
+    <script src="/static/js/script.js"></script>
+
+</body>
+
+</html>
