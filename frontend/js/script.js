@@ -69,6 +69,9 @@ async function translate() {
     const mode = 
         document.getElementById("mode").value;
 
+    const model = 
+        document.getElementById("ai_model").value;
+
 
     statusBox.innerHTML ="🤖 Gemini is thinking...";
 
@@ -103,8 +106,9 @@ async function translate() {
 
                 tone: tone,
                 
-                mode: mode
-
+                mode: mode,
+                
+                model: model
             })
 
 

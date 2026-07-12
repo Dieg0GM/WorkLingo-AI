@@ -8,3 +8,4 @@ class TranslationRequest(BaseModel):
     channel: str
     tone: str
     mode: str
+    model: str

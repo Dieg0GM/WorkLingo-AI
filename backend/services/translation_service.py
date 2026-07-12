@@ -12,31 +12,56 @@ from google.genai.errors import ClientError
 
 def translate_text(request):
 
-    print("DEBUG REQUEST:")
-    print(request)
-    print(request.model_dump())
+    
+    if request.mode == "assistant":
 
-    prompt = f"""
-    Translate the following text.
+        prompt = f"""
 
-    Source language:
-    {request.source_language}
+You are an AI communication assistant.
 
-    Target language:
-    {request.target_language}
+The user wants to create a professional message.
 
-    Channel:
-    {request.channel}
+First improve the user's idea.
+Make it natural and clear.
 
-    Tone:
-    {request.tone}
+Then translate it into {request.target_language}.
 
-    Mode:
-    {request.mode}
+Context:
+Channel: {request.channel}
+Tone: {request.tone}
 
-    Text:
-    {request.text}
-    """
+User message:
+
+{request.text}
+
+"""
+
+
+    else:
+
+        prompt = f"""
+
+Translate the following message.
+
+Source language:
+{request.source_language}
+
+Target language:
+{request.target_language}
+
+Channel:
+{request.channel}
+
+Tone:
+{request.tone}
+
+Keep the original meaning.
+
+Text:
+
+{request.text}
+
+"""
 
     try:
 

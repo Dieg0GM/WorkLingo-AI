@@ -4,6 +4,7 @@ from backend.services.translation_service import translate_text
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
+from backend.services.ai_router import ai_router
 
 app = FastAPI()
 
@@ -27,4 +28,5 @@ def about():
 
 @app.post("/translate")
 def translate(request: TranslationRequest):
-    return translate_text(request)
+    
+    return ai_router(request)

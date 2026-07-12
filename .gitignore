@@ -1,1 +1,13 @@
 .env
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# API keys
+backend/config/settings.py
