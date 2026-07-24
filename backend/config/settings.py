@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     moonshot_api_key: str = ""
 
     ollama_base_url: str = "http://localhost:11434"
+    ollama_models: str = "qwen3:8b,llama3.3,gemma3:27b"
 
     @property
     def cors_origins_list(self) -> list[str]:

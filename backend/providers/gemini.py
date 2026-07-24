@@ -24,6 +24,7 @@ class GeminiProvider(BaseProvider):
 
     def __init__(self, api_key: str) -> None:
         self.api_key = api_key
+        self.base_url = "https://generativelanguage.googleapis.com"
         self._client: genai.Client | None = None
 
     def is_configured(self) -> bool:
