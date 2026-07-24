@@ -2,17 +2,10 @@ from backend.models.generation import GenerationRequest
 from backend.models.request import TranslationRequest
 from backend.models.response import TranslationResponse
 from backend.providers.registry import registry
+from backend.services.prompt_engine import PromptEngine
 
 
-def _build_simple_prompt(request: TranslationRequest) -> str:
-    return (
-        f"Channel: {request.channel}\n"
-        f"Tone: {request.tone}\n"
-        f"Mode: {request.mode}\n"
-        f"Source: {request.source_language}\n"
-        f"Target: {request.target_language}\n\n"
-        f"{request.text}"
-    )
+_prompt_engine = PromptEngine()
 
 
 def _strip_provider(model_id: str) -> str:
@@ -38,9 +31,11 @@ async def ai_router(request: TranslationRequest) -> TranslationResponse:
             error="missing_key",
         )
 
+    system_prompt, user_prompt = _prompt_engine.build(request)
     gen_request = GenerationRequest(
         model=_strip_provider(request.model),
-        prompt=_build_simple_prompt(request),
+        system=system_prompt,
+        prompt=user_prompt,
         temperature=0.3 if request.mode == "translate" else 0.7,
     )
     result = await provider.generate(gen_request)
