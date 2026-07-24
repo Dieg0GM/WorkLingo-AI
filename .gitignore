@@ -1,13 +1,48 @@
+# Entornos
 .env
+.env.*
+*.local
+**/.env
+**/settings.py
+!config/settings.example.py
+
 # Python
 __pycache__/
-*.pyc
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+build/
+dist/
 
-# Virtual environment
-.venv/
+# Tests / cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
 
-# Environment variables
-.env
+# Logs
+*.log
+logs/
 
-# API keys
-backend/config/settings.py
+# IDE / OS
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Varios
+*.bak
+*.tmp
+*.orig
+node_modules/
