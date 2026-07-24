@@ -1,10 +1,10 @@
 from google import genai
 
-from backend.config.settings import GEMINI_API_KEY
+from backend.config.settings import settings
 from backend.services.prompt_builder import build_prompt
 
 
-client = genai.Client(api_key=GEMINI_API_KEY)
+client = genai.Client(api_key=settings.gemini_api_key)
 
 
 from google.genai.errors import ClientError

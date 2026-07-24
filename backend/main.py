@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.models.translation import TranslationRequest
+from backend.models.request import TranslationRequest
 from backend.services.translation_service import translate_text
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles

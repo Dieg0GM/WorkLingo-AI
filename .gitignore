@@ -5,6 +5,7 @@
 **/.env
 !.env.example
 **/settings.py
+!backend/config/settings.py
 !config/settings.example.py
 
 # Python
