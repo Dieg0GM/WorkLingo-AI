@@ -7,10 +7,12 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.config.settings import settings
 from backend.models.request import TranslationRequest
+from backend.providers.factory import register_providers
 from backend.services.ai_router import ai_router
 
 
 app = FastAPI()
+register_providers()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,
