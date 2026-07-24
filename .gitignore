@@ -3,6 +3,7 @@
 .env.*
 *.local
 **/.env
+!.env.example
 **/settings.py
 !config/settings.example.py
 
